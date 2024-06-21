@@ -13,18 +13,18 @@ const Header = () => {
         {
             name: "Home",
             path: "/",
-            active: true,
+            active: authStatus,
         },
         {
             name: "Login",
             path: "/login",
             active: !authStatus,
         },
-        {
-            name: "SignUp",
-            path: "/signup",
-            active: !authStatus,
-        },
+        // {
+        //     name: "SignUp",
+        //     path: "/signup",
+        //     active: !authStatus,
+        // },
         // {
         //     name: "All Articles",
         //     path: "/all-articles",
@@ -39,19 +39,19 @@ const Header = () => {
 
 
   return (
-    <div className='py-3 px-4 flex justify-between items-center'>
+    <div className='py-1 pt-8 mx-8 flex justify-between items-center'>
         <div>
             <Link to={'/'}>
                 <Logo width={'200px'} />
             </Link>
         </div>
         <nav className=''>
-            <ul className='flex gap-x-5 text-lg font-semibold items-center'>
+            <ul className='flex gap-x-4 text-lg font-semibold items-center'>
                 {navItems.map((item) => item.active ? (
                     <li key={item.name}>
                         <button
                             onClick={() => navigate(item.path)}
-                            className='active:text-[#B6BBC4]'
+                            className={`active:text-[#B6BBC4] ${!authStatus ? 'bg-[#102C57] px-5 py-2 rounded-lg text-[#FEFAF6]' : 'null'}`}
                         >{item.name}</button>
                     </li>
                 ) : null 

@@ -7,6 +7,7 @@ import Button from '../minorComp/Button'
 import Select from '../minorComp/Select'
 import RTE from '../RTE'
 import { useForm } from 'react-hook-form'
+import TextArea from '../minorComp/TextArea'
 
 const ArticleForm = ({post}) => {
     const navigate = useNavigate()
@@ -15,6 +16,7 @@ const ArticleForm = ({post}) => {
         defaultValues: {
             title: post?.title || '',
             slug: post?.slug || '',
+            description: post?.description || '',
             content: post?.content || '',
             status: post?.status || 'active',
         }
@@ -31,7 +33,7 @@ const ArticleForm = ({post}) => {
                 ...data,
                 featuredImage: file ? file.$id : undefined
             })
-
+            
             if(dbPost){
                 navigate(`/article/${dbPost.$id}`)
             }
@@ -87,6 +89,12 @@ const ArticleForm = ({post}) => {
                         shouldValidate: true
                     })
                 }}
+            />
+
+            <TextArea
+                label="Description:"
+                placeholder="Description"
+                {...register("description", {required: post})}
             />
 
             <RTE

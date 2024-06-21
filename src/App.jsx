@@ -4,6 +4,7 @@ import { login, logout } from './store/authSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { Navigate, Outlet } from 'react-router-dom'
 import Header from './components/header/Header'
+import Footer from './components/footer/Footer'
 
 const App = () => {
   const dispatch = useDispatch()
@@ -22,13 +23,16 @@ const App = () => {
   }, [])
 
   return !loading ? (
-    <div>
+    <div className='min-h-screen relative'>
       <div className=''>
         <Header />
       </div>
-      <main>
+      <main className=''>
         <Outlet />
       </main>
+      <div className='absolute bottom-0 w-full'>
+        <Footer/>
+      </div>
     </div>
   ) : (
     <div className='flex items-center justify-center h-screen w-full'>Loading...</div>

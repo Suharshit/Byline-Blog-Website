@@ -45,13 +45,11 @@ const Article = () => {
             )}
             <img src={appwriteBlogService.getFilePreview(post.featuredImage)} alt={post.title} className='w-[460px] rounded-xl border-2 shoadow-2xl border-[#B6BBC4]'/>
         </div>
-        <div className='min-h-[450px] min-w-[560px] space-y-3'>
-            <h1 className='font-bold text-xl'>Title: <p className='font-normal text-lg'>{post.title}</p></h1>
-            <div className='font-bold text-xl'>
-                Content: 
-                <span className='font-normal text-lg'>
-                    {parse(post.content)}
-                </span>
+        <div className='min-h-[450px] max-w-[830px] space-y-3'>
+            <h1 className='font-bold text-4xl'>{post.title}</h1>
+            <h3 className='font-bold text-2xl text-zinc-700'>{post.description}</h3>
+            <div className='font-normal text-xl text-zinc-700'>
+                {parse(post.content)}
             </div>
         </div>
     </div>
@@ -62,7 +60,7 @@ const Article = () => {
   ) : (
     <div className='min-h-[550px] w-full flex items-center justify-center'>
         <h1 className='font-bold text-2xl'>
-            Login to see the Article
+            Login to Read the Article
         </h1>
     </div>
   )

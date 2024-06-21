@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 :root{
-    background: #161A30;
-    color: aliceblue;
+    background: #FEFAF6;
+    color: rgb(28, 28, 28);
     font-family: "Poppins", sans-serif;
+}
+
+.logo{
+    font-family: "Playwrite MX";
 }

@@ -38,24 +38,24 @@ const Profile = () => {
     navigate('/login')
   }
   return (
-    <div className='flex flex-col px-20 space-y-5'>
+    <div className='flex flex-col px-20 space-y-5 min-h-screen pt-4'>
       <div className='flex justify-between'>
         <div className='min-h-48 w-2/3 flex space-x-5'>
           {
             profileData.ProfileImage ? (
               <img src={userProfileService.getFilePreveiw(profileData.ProfileImage)} alt="" className='h-52 w-52 rounded-full'/>
             ) : (
-              <img src="https://i.pinimg.com/236x/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg" alt="" className='h-48 rounded-full'/>
+              <img src="https://i.pinimg.com/236x/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg" alt="" className='h-48 rounded-full shadow-2xl'/>
             )
           }
           <div className='flex flex-col justify-center'>
             <h1 className='text-xl font-bold'>{profileData.name}</h1>
-            <p className='text-lg text-zinc-300'>{profileData.email}</p>
-            <p className='text-md font-light w-64 text-zinc-400'>{profileData.bio}</p>
+            <p className='text-lg text-zinc-700'>{profileData.email}</p>
+            <p className='text-md font-light w-64 text-zinc-700'>{profileData.bio}</p>
           </div>
         </div>
         <div className='space-x-3 font-semibold'>
-          <button className='bg-[#EEF0E5] text-black p-3 rounded-xl' onClick={() => navigate("/edit-profile")}>Edit Profile</button>
+          <button className='bg-[#DAC0A3] text-[#FEFAF6] p-3 rounded-xl' onClick={() => navigate("/edit-profile")}>Edit Profile</button>
         </div>
       </div>
       <div className='space-y-3'>

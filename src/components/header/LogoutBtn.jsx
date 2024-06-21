@@ -11,7 +11,7 @@ const LogoutBtn = () => {
     })
   }
   return (
-    <button onClick={logouthandle} className='bg-[#2d55f7] p-2 rounded-xl'>
+    <button onClick={logouthandle} className='bg-[#102C57] text-[#EADBC8] p-2 rounded-xl'>
       Logout
     </button>
   )

@@ -43,7 +43,7 @@ const SignUpComp = () => {
     }
   }
   return (
-    <div className='w-[450px] flex flex-col items-center border-2 py-5 rounded-xl'>
+    <div className='w-[450px] flex flex-col items-center border-2 py-5 rounded-xl  bg-[#DAC0A3] text-white'>
       <div className='w-full flex flex-col items-center'>
         <h2 className='text-2xl font-semibold pb-5'>SignUp to create Account</h2>
         {error && <p>{error}</p>}
@@ -96,7 +96,7 @@ const SignUpComp = () => {
               ) : (
                 <div className='w-full py-3'>
                   <Button type="submit" 
-                    className='w-full p-3 rounded-lg hover:bg-blue-800' bgColor='bg-blue-600'>
+                    className='w-full p-3 rounded-lg hover:bg-[#121e30]' bgColor='bg-[#102C57]'>
                     Create Account
                   </Button>
                 </div>
@@ -106,7 +106,7 @@ const SignUpComp = () => {
         </form>
         <p>
           Already have an account?&nbsp;
-          <Link to="/login" className='text-blue-500 font-bold hover:underline'>Login</Link>
+          <Link to="/login" className='text-[#102C57] font-bold hover:underline'>Login</Link>
         </p>
       </div>
     </div>

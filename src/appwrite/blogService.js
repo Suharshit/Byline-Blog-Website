@@ -18,6 +18,7 @@ export class ArticleService{
         slug,
         title,
         content,
+        description,
         featuredImage,
         status,
         userId
@@ -31,6 +32,7 @@ export class ArticleService{
                     title,
                     slug,
                     content,
+                    description,
                     featuredImage,
                     status,
                     userId
@@ -44,6 +46,7 @@ export class ArticleService{
     async updatePost(slug, {
         title,
         content,
+        description,
         featuredImage,
         status
     }){
@@ -55,6 +58,7 @@ export class ArticleService{
                 {
                     title,
                     content,
+                    description,
                     featuredImage,
                     status
                 }
