@@ -19,7 +19,7 @@ const ProfileBtn = () => {
       setProfile(userProfileService.getFilePreveiw(userData.ProfileImage))
     }
     userProfile()
-  }, [user, userData])
+  }, [user, setUserData])
 
 
   return (
