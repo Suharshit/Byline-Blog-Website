@@ -13,7 +13,6 @@ const ProfileBtn = () => {
     const userProfile = async() => await userProfileService.getUserProfile(user.$id).then((data) => {
       setUserData(data)
     })
-    console.log(userData)
     if(userData === undefined){
       setProfile("https://i.pinimg.com/236x/d1/e3/d2/d1e3d2a12bc3d0221898c4391dffcfff.jpg")
     } else {
