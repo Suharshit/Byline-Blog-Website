@@ -9,7 +9,7 @@ const RTE = ({
     defaultvalue = ''
 }) => {
   return (
-    <div>
+    <div className='pb-10'>
         {
             label && <label>{label}</label>
         }

@@ -19,6 +19,7 @@ export class ArticleService{
         title,
         content,
         description,
+        owner,
         featuredImage,
         status,
         userId
@@ -33,6 +34,7 @@ export class ArticleService{
                     slug,
                     content,
                     description,
+                    owner,
                     featuredImage,
                     status,
                     userId
@@ -123,6 +125,24 @@ export class ArticleService{
             )
         } catch (error) {
             console.log("Appwrite Article Service :: getUserPosts :: ", error)
+            return false
+        }
+    }
+
+    async getUserSearchPosts(
+        search
+    ){
+        try {
+            return await this.databases.listDocuments(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionIdArticles,
+                [
+                    Query.equal("status","active"),
+                    Query.search("title", search)
+                ]
+            )
+        } catch (error) {
+            console.log("Appwrite Article Service :: getUserSearchPosts :: ", error)
             return false
         }
     }

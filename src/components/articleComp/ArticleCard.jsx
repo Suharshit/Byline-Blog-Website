@@ -6,20 +6,24 @@ const ArticleCard = ({
     $id,
     title,
     description,
+    owner,
     featuredImage
 }) => {
   return (
     <Link to={`/article/${$id}`}>
-        <div className='min-h-[310px] bg-[#EADBC8] w-[380px] p-3 rounded-xl space-y-1 shadow-xl'>
+        <div className='h-[440px] bg-[#EADBC8] w-[325px] p-3 rounded-xl space-y-1 shadow-xl overflow-hidden relative'>
             <div className='flex w-full justify-center'>
-                <img src={appwriteBlogService.getFilePreview(featuredImage)} alt={title} className='rounded-xl max-h-56 border-2'/>
+                <img src={appwriteBlogService.getFilePreview(featuredImage)} alt={title} className='rounded-xl min-h-56 max-h-60 border-2'/>
             </div>
-            <h2 className='flex gap-x-2 font-bold text-lg px-4'>
-                <p className='font-bold'>{title}</p>
+            <h2 className='gap-x-2 font-bold text-xl px-4'>
+                {title}
             </h2>
-            <h2 className='flex gap-x-2 font-bold text-lg px-4'>
-                <p className='font-normal'>{description}</p>
-            </h2>
+            <p className='gap-x-2 font-normal text-md px-4'>
+                {description}
+            </p>
+            <p className='gap-x-2 font-normal text-sm flex justify-end bottom-2 right-2 absolute text-zinc-600'>
+                Created by: {owner}
+            </p>
         </div>
     </Link>
   )

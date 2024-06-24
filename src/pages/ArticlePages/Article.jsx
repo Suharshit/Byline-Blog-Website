@@ -33,7 +33,7 @@ const Article = () => {
     }
 
   return (post && userStatus) ? (
-    <div className='min-h-96 min-w-screen p-6 flex flex-row-reverse justify-between mx-12'>
+    <div className='min-h-96 min-w-screen p-6 flex flex-row-reverse justify-between mx-12 pb-16'>
         <div className='w-full flex flex-col items-end space-y-3'>
             {isAuthor && (
                 <div className='flex space-x-4'>
@@ -43,14 +43,15 @@ const Article = () => {
                     <Button onClick={deleteArticle} bgColor='bg-red-700' textColor='text-white' className='p-2 px-6 rounded-lg space-y-3 hover:bg-red-900'>Delete</Button>
                 </div>
             )}
-            <img src={appwriteBlogService.getFilePreview(post.featuredImage)} alt={post.title} className='w-[460px] rounded-xl border-2 shoadow-2xl border-[#B6BBC4]'/>
+            <img src={appwriteBlogService.getFilePreview(post.featuredImage)} alt={post.title} className='w-[460px] rounded-xl border-2 shadow-2xl border-zinc-600 s'/>
         </div>
         <div className='min-h-[450px] max-w-[830px] space-y-3'>
             <h1 className='font-bold text-4xl'>{post.title}</h1>
-            <h3 className='font-bold text-2xl text-zinc-700'>{post.description}</h3>
-            <div className='font-normal text-xl text-zinc-700'>
+            <h3 className='font-bold text-2xl text-zinc-800'>{post.description}</h3>
+            <div className='text-zinc-600'>
                 {parse(post.content)}
             </div>
+            <p className='font-semibold text-lg'>Created By: {post.owner}</p>
         </div>
     </div>
   ) : userStatus ? (

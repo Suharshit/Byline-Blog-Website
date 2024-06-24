@@ -17,6 +17,7 @@ const ArticleForm = ({post}) => {
             title: post?.title || '',
             slug: post?.slug || '',
             description: post?.description || '',
+            onwer: post?.owner || '',
             content: post?.content || '',
             status: post?.status || 'active',
         }
@@ -31,6 +32,7 @@ const ArticleForm = ({post}) => {
             }
             const dbPost = await appwriteBlogService.updatePost(post.$id, {
                 ...data,
+                owner: userData.name,
                 featuredImage: file ? file.$id : undefined
             })
             
@@ -46,7 +48,8 @@ const ArticleForm = ({post}) => {
                 const dbPost = await appwriteBlogService.createPost({
                     ...data,
                     slug: data.slug,
-                    userId: userData.$id
+                    userId: userData.$id,
+                    owner: userData.name
                 })
                 if(dbPost){
                     navigate(`/article/${dbPost.$id}`)
@@ -78,6 +81,7 @@ const ArticleForm = ({post}) => {
                 label="Title:"
                 placeholder="Title"
                 {...register("title", {required: true})}
+                className='outline-none border-zinc-700'
             />
 
             <Input
@@ -89,12 +93,14 @@ const ArticleForm = ({post}) => {
                         shouldValidate: true
                     })
                 }}
+                className='outline-none border-zinc-700'
             />
 
             <TextArea
                 label="Description:"
                 placeholder="Description"
                 {...register("description", {required: post})}
+                className='outline-none border-zinc-700'
             />
 
             <RTE
@@ -110,6 +116,7 @@ const ArticleForm = ({post}) => {
                 type="file"
                 accept="image/png, image/jpg, image/jpeg"
                 {...register("image", {required: !post})}
+                className='outline-none border-zinc-700'
             />
             {post && (
                 <div>
@@ -120,14 +127,14 @@ const ArticleForm = ({post}) => {
             <Select
                 options={["Active", "Inactive"]}
                 label="Status:"
-                className=" text-black p-1 flex w-[340px] font-semibold rounded-lg"
+                className=" text-black p-1 flex w-[340px] font-semibold rounded-lg border-zinc-700 border-2"
                 {...register("status", {required: true})}
             />
             <div className='flex w-full justify-center h-auto'>
                 <Button
                     type="submit"
-                    bgColor={post ? "bg-green-500": "bg-blue-600"}
-                    className='p-2 rounded-lg w-[370px]'
+                    bgColor={post ? "bg-green-500": "bg-[#102C57]"}
+                    className='p-2 rounded-lg w-[370px] text-white'
                 >{post ? "Update": "Submit"}</Button>
             </div>
         </div>

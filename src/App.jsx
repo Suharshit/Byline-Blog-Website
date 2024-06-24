@@ -23,14 +23,12 @@ const App = () => {
   }, [])
 
   return !loading ? (
-    <div className='min-h-screen relative'>
-      <div className=''>
+    <div className='min-h-screen flex flex-wrap content-between'>
+      <div className='w-full block'>
         <Header />
-      </div>
-      <main className=''>
-        <Outlet />
-      </main>
-      <div className='absolute bottom-0 w-full'>
+        <main className='min-h-fit'>
+          <Outlet />
+        </main>
         <Footer/>
       </div>
     </div>

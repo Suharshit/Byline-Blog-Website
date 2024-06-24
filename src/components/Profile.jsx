@@ -38,7 +38,7 @@ const Profile = () => {
     navigate('/login')
   }
   return (
-    <div className='flex flex-col px-20 space-y-5 min-h-screen pt-4'>
+    <div className='flex flex-col px-20 space-y-5 pt-4 mb-20 min-h-screen'>
       <div className='flex justify-between'>
         <div className='min-h-48 w-2/3 flex space-x-5'>
           {
@@ -66,7 +66,7 @@ const Profile = () => {
               <p className='text-xl font-bold text-zinc-400'>No posts yet!</p>
             </div>
           ) : (
-            <div className='grid grid-cols-4 space-x-10'>
+            <div className='grid grid-cols-4 gap-x-10 gap-y-10'>
               {
                 userPosts.map((post) => (
                 <div key={post.$id} className='max-h-44'>
