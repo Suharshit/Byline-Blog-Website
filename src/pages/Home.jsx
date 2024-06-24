@@ -83,7 +83,7 @@ const Home = () => {
       </div>
       <div className='space-y-8 p-6 px-10'>
         <h1 className='text-center font-semibold text-5xl'>Top Articles</h1>
-        <div className='grid grid-cols-4 gap-x-44'>
+        <div className='grid grid-cols-4 gap-x-10 gap-y-10'>
           {posts ? posts.map((post) => (
             <div key={post.$id}>
               <ArticleCard {...post}/>
